@@ -1,0 +1,267 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Чипи - интернет магазин электроники</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+		
+		<!-- all css here -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bundle.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    </head>
+    <body>
+            <script>
+                window.category = {
+                    id: {{category_id}},
+                    name: "{{category_name}}",
+                    code: "{{category_code}}"
+                };
+            </script>
+            <!-- Add your site or application content here -->
+            
+            
+            <!--header area start-->
+            <header class="header_area">
+            </header>
+            <!--header area end-->
+            
+            <!--breadcrumbs area start-->
+            <div class="breadcrumbs_area">
+                <div class="container">   
+                    <div class="breadcrumbs_inner">  
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="breadcrumb_content">
+                                    <h3>{{category_name}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>         
+            </div>
+            <!--breadcrumbs area end-->
+            
+            <!--shop wrapper start-->
+            <div class="shop_wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12">
+                            <!--shop toolbar start-->
+                            <div class="shop_toolbar">
+                                <div class="select_option">
+                                    <form action="#">
+                                        <label>Сортировка</label>
+                                        <select name="orderby" id="short1">
+                                            <option value="1">По порядку</option>
+                                            <option value="2">Сначала недорогие</option>
+                                            <option value="3">Сначала дорогие</option>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                            <!--shop toolbar end-->
+                             <!--shop tab product-->
+                            <div class="shop_tab_product">   
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="list" role="tabpanel">
+                                    </div>
+
+                                </div>
+                            </div>    
+                            <!--shop tab product end-->
+                            
+                            <!--pagination style start--> 
+<!--                            <div class="pagination_style right_sidebar">-->
+<!--                                <ul>-->
+<!--                                    <li class="current_number">1</li>-->
+<!--                                    <li><a href="#">2</a></li>-->
+<!--                                    <li><a href="#">3</a></li>-->
+<!--                                    <li><a href="#">4</a></li>-->
+<!--                                    <li><a href="#">»</a></li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+                            <!--pagination style end--> 
+                        </div>
+                        <div class="col-lg-3 col-md-12">
+                            <div class="sidebar_widget">
+                                <!--widget color start-->
+                                <div class="widget_list widget_color">
+                                    <h3>Цвет</h3>
+                                    <ul>
+                                        <li><a href="#">Чёрный</a></li>
+
+                                        <li><a href="#">Оранжевый</a></li>
+
+                                        <li> <a href="#">Синий</a></li>
+
+                                        <li><a href="#">Желтый</a></li>
+
+                                        <li><a href="#">Розовый</a></li>
+
+                                        <li><a href="#">Зелёный</a></li>
+                                    </ul>
+                                </div>
+                                <!--widget color start-->
+                                
+                                <!--manufacturer start-->
+                                <div class="widget_list manufacturer">
+                                    <h3>Производитель</h3>
+                                    <ul>
+                                        <li><a href="#">Чипи</a></li>
+                                        <li><a href="#">Чапа</a></li>
+                                        <li> <a href="#">Дуби</a></li>
+                                        <li><a href="#">Даба</a></li>
+                                    </ul>
+                                </div>
+                                <!--manufacturer start-->
+                                
+                                <!--widget  price start-->
+                                <div class="widget_list price">
+                                    <h3>Цена</h3>
+                                    <ul>
+                                        <li><a href="#">до 20000 </a></li>
+
+                                        <li><a href="#">больше 20000</a></li>
+                                    </ul>
+                                </div>
+                                <!--widget  price end-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--shop wrapper end-->
+    
+   
+            <div class="page_footer">
+
+            </div>
+            
+           
+<!--            &lt;!&ndash; modal area start&ndash;&gt;-->
+<!--            <div class="modal fade" id="modal_box" tabindex="-1" role="dialog"  aria-hidden="true">-->
+<!--                <div class="modal-dialog modal-dialog-centered" role="document">-->
+<!--                    <div class="modal-content">-->
+<!--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                          <span aria-hidden="true">&times;</span>-->
+<!--                        </button>-->
+<!--                        <div class="modal_body">-->
+<!--                            <div class="container">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-lg-5 col-md-5 col-sm-12">-->
+<!--                                        <div class="modal_tab">  -->
+<!--                                            <div class="tab-content product-details-large">-->
+<!--                                                <div class="tab-pane fade show active" id="tab1" role="tabpanel" >-->
+<!--                                                    <div class="modal_tab_img">-->
+<!--                                                        <a href="#"><img src="assets/img/product/product44.jpg" alt=""></a>    -->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="tab-pane fade" id="tab2" role="tabpanel">-->
+<!--                                                    <div class="modal_tab_img">-->
+<!--                                                        <a href="#"><img src="assets/img/product/product45.jpg" alt=""></a>    -->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="tab-pane fade" id="tab3" role="tabpanel">-->
+<!--                                                    <div class="modal_tab_img">-->
+<!--                                                        <a href="#"><img src="assets/img/product/product46.jpg" alt=""></a>    -->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="tab-pane fade" id="tab4" role="tabpanel">-->
+<!--                                                    <div class="modal_tab_img">-->
+<!--                                                        <a href="#"><img src="assets/img/product/product47.jpg" alt=""></a>    -->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div class="modal_tab_button">    -->
+<!--                                                <ul class="nav product_navactive owl-carousel" role="tablist">-->
+<!--                                                    <li >-->
+<!--                                                        <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="assets/img/cart/cart5.jpg" alt=""></a>-->
+<!--                                                    </li>-->
+<!--                                                    <li>-->
+<!--                                                         <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="assets/img/cart/cart6.jpg" alt=""></a>-->
+<!--                                                    </li>-->
+<!--                                                    <li>-->
+<!--                                                       <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="assets/img/cart/cart7.jpg" alt=""></a>-->
+<!--                                                    </li>-->
+<!--                                                    <li>-->
+<!--                                                       <a class="nav-link" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="assets/img/cart/cart8.jpg" alt=""></a>-->
+<!--                                                    </li>-->
+<!--                                                    -->
+<!--                                                </ul>-->
+<!--                                            </div>    -->
+<!--                                        </div>  -->
+<!--                                    </div> -->
+<!--                                    <div class="col-lg-7 col-md-7 col-sm-12">-->
+<!--                                        <div class="modal_right">-->
+<!--                                            <div class="modal_title mb-10">-->
+<!--                                                <h2>Handbag feugiat</h2> -->
+<!--                                            </div>-->
+<!--                                            <div class="modal_price mb-10">-->
+<!--                                                <span class="new_price">$64.99</span>    -->
+<!--                                                <span class="old_price" >$78.99</span>    -->
+<!--                                            </div>-->
+<!--                                            <div class="modal_content mb-10">-->
+<!--                                                <p>Short-sleeved blouse with feminine draped sleeve detail.</p>    -->
+<!--                                            </div>-->
+<!--                                            <div class="modal_size mb-15">-->
+<!--                                               <h2>size</h2>-->
+<!--                                                <ul>-->
+<!--                                                    <li><a href="#">s</a></li>-->
+<!--                                                    <li><a href="#">m</a></li>-->
+<!--                                                    <li><a href="#">l</a></li>-->
+<!--                                                    <li><a href="#">xl</a></li>-->
+<!--                                                    <li><a href="#">xxl</a></li>-->
+<!--                                                </ul>-->
+<!--                                            </div>-->
+<!--                                            <div class="modal_add_to_cart mb-15">-->
+<!--                                                <form action="#">-->
+<!--                                                    <input min="1" max="100" step="2" value="1" type="number">-->
+<!--                                                    <button type="submit">add to cart</button>-->
+<!--                                                </form>-->
+<!--                                            </div>   -->
+<!--                                            <div class="modal_description mb-15">-->
+<!--                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>    -->
+<!--                                            </div> -->
+<!--                                            <div class="modal_social">-->
+<!--                                                <h2>Share this product</h2>-->
+<!--                                                <ul>-->
+<!--                                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+<!--                                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+<!--                                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
+<!--                                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>-->
+<!--                                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
+<!--                                                </ul>    -->
+<!--                                            </div>      -->
+<!--                                        </div>    -->
+<!--                                    </div>    -->
+<!--                                </div>     -->
+<!--                            </div>-->
+<!--                        </div>    -->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div> -->
+<!--            &lt;!&ndash; modal area start&ndash;&gt;-->
+
+		<!-- all js here -->
+        <script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script>$(function(){
+                  $('.header_area').load('{{ url_for('header') }}');
+                  $('.page_footer').load('{{ url_for('footer') }}');
+                });
+        </script>
+        <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/category.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+       <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Чипи - Корзина</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+
+		<!-- all css here -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bundle.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    </head>
+    <body>
+            <!-- Add your site or application content here -->
+            
+            
+            <!--header area start-->
+            <header class="header_area">
+
+            </header>
+            <!--header area end-->
+            
+            <!--breadcrumbs area start-->
+            <div class="breadcrumbs_area commun_bread">
+                <div class="container">   
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="breadcrumb_content">
+                                <h3 style="text-align: center;">Корзина</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>         
+            </div>
+            <!--breadcrumbs area end-->
+      
+             <!--shopping cart area start -->
+            <div class="shopping_cart_area">
+                <div class="container">  
+                    <form action="#"> 
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="table_desc">
+                                    <div class="cart_page table-responsive">
+                                        <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product_remove" style="min-width: 100px">Удалить</th>
+                                            <th class="product_thumb">Изображение</th>
+                                            <th class="product_name">Название</th>
+                                            <th class="product-price">Цена</th>
+                                            <th class="product_quantity">Количество</th>
+                                            <th class="product_total">Всего</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cart-content">
+
+                                    </tbody>
+                                </table>   
+                                    </div>  
+                                    <!--<div class="cart_submit">
+                                        <button type="submit">update cart</button>
+                                    </div> -->
+                                </div>
+                             </div>
+                         </div>
+                         <!--coupon code area start-->
+                        <div class="coupon_area">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="coupon_code left">
+                                        <h3>Бонусы</h3>
+                                        <div class="coupon_inner">   
+                                            <p>Введите количество бонусов, которое вы хотите списать. Всего: 0</p>
+                                            <input placeholder="Количество бонусов" type="text">
+                                            <button type="submit">Применить</button>
+                                        </div>    
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="coupon_code right">
+                                        <h3>Итого</h3>
+                                        <div class="coupon_inner">
+                                           <div class="cart_subtotal">
+                                               <p>Без учета бонусов</p>
+                                               <p class="cart_amount" id="cart_total">0 ₽</p>
+                                           </div>
+                                           <div class="cart_subtotal ">
+                                               <p>Оплачено бонусами</p>
+                                               <p class="cart_amount" id="bonus">0 ₽</p>
+                                           </div>
+
+                                           <div class="cart_subtotal">
+                                               <p>Итого</p>
+                                               <p class="cart_amount" id="total">0 ₽</p>
+                                           </div>
+                                           <div class="checkout_btn">
+                                               <a href="#">Подтвердить заказ</a>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--coupon code area end-->
+                    </form> 
+                </div>     
+            </div>
+             <!--shopping cart area end -->
+            
+            <div class="page_footer">
+
+            </div>
+
+		<!-- all js here -->
+        <script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script>$(function(){
+                  $('.header_area').load('{{ url_for('header') }}');
+                  $('.page_footer').load('{{ url_for('footer') }}');
+                });
+        </script>
+        <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+    </body>
+</html>

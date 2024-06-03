@@ -1,0 +1,8 @@
+services:
+  web:
+    ports:
+      - "5000:5000"
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    command: bash -c "python web/app.py"

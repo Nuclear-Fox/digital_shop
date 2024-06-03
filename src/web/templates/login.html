@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Чипи - интернет магазин электроники</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+
+		<!-- all css here -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bundle.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    </head>
+    <body>
+            <!-- Add your site or application content here -->
+            
+            
+            <!--header area start-->
+            <header class="header_area">
+            </header>
+            <!--header area end-->
+
+            <!-- customer login start -->
+            <div class="customer_login">
+                <div class="container">
+                    <div class="row">
+                       <!--login area start-->
+                        <div class="col-lg-6 col-md-6">
+                            <div class="account_form login">
+                                <h2>Войти</h2>
+                                <form action="#">
+                                    <p>   
+                                        <label>Email <span>*</span></label>
+                                        <input id="emailLogin" type="text">
+                                     </p>
+                                     <p>   
+                                        <label>Пароль <span>*</span></label>
+                                        <input id="passwordLogin" type="password">
+                                     </p>   
+                                    <div class="login_submit">
+                                        <button id="loginButton" type="button">Войти</button>
+                                        <label for="remember">
+                                            <input id="remember" type="checkbox">
+                                            Запомнить
+                                        </label>
+                                        <a href="#">Забыли пароль?</a>
+                                    </div>
+
+                                </form>
+                             </div>    
+                        </div>
+                        <!--login area start-->
+
+                        <!--register area start-->
+                        <div class="col-lg-6 col-md-6">
+                            <div class="account_form register">
+                                <h2>Регистрация</h2>
+                                <form action="#">
+                                    <p>   
+                                        <label>Email <span>*</span></label>
+                                        <input id="emailReg" type="text">
+                                     </p>
+                                     <p>   
+                                        <label>Пароль <span>*</span></label>
+                                        <input id="passwordReg" type="password">
+                                     </p>
+                                    <div class="login_submit">
+                                        <button id="regButton" type="button">Регистрация</button>
+                                    </div>
+                                </form>
+                            </div>    
+                        </div>
+                        <!--register area end-->
+                    </div>
+                </div>    
+            </div>
+            <!-- customer login end -->
+
+            <!--footer area start-->
+            <div class="page_footer">
+
+            </div>
+            <!--footer area end-->
+
+		<!-- all js here -->
+        <script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script>$(function(){
+                  $('.header_area').load('{{ url_for('header') }}');
+                  $('.page_footer').load('{{ url_for('footer') }}');
+                });
+        </script>
+        <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+    </body>
+</html>

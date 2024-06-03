@@ -1,0 +1,225 @@
+<!--header top start-->
+<div class="header_top">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6">
+                <i class="ion-ios-location-outline"></i>
+                Москва
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="top_right text-right">
+                    <a href="tel:8-800-535-35-35">8-800-535-35-35</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--header top start-->
+
+<!--header bottom satrt-->
+<div class="header_bottom sticky-header">
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-3">
+                <div class="row logo">
+                    <div class="col-lg-6 logo-item">
+                        <a href="{{ url_for('chipi') }}" title="На главную страницу">
+                            <img src="{{ url_for('static', filename='logo.png') }}" alt="Чипи" vspace="5">
+                        </a>
+                    </div>
+                    <div class="col-lg-6 logo-item">
+                        <div class="categories_menu">
+                            <div class="categories_title">
+                                <h2 class="categori_toggle">Каталог</h2>
+                            </div>
+                            <div class="categories_menu_inner">
+                                <ul>
+                                    <li class="categorie_list"><a href="#">Бытовая техника<i class="fa fa-angle-right"></i></a>
+                                        <ul class="categories_mega_menu">
+                                            <li class="mega-menu-list"><a href="#">Встраиваемая техника</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/var_paneli">Варочные панели</a></li>
+                                                        <li><a href="/category/duh_shkafi">Духовые шкафы</a></li>
+                                                        <li><a href="/category/vitazki">Вытяжки</a></li>
+                                                        <li><a href="/category/vstr_holod">Встраиваемые холодильники</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="mega-menu-list"><a href="#">Техника для кухни</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/pechi_pliti">Печи и плиты</a></li>
+                                                        <li><a href="/category/holod_oborud">Холодильное оборудование</a></li>
+                                                        <li><a href="/category/posud_machini">Посудомоечные машины</a></li>
+                                                        <li><a href="/category/el_chainik">Электрочайники</a></li>
+                                                        <li><a href="/category/narez_smesh">Нарезка и смешивание</a></li>
+                                                        <li><a href="/category/izmer">Измерения</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="mega-menu-list"><a href="#">Техника для дома</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/stirka_sushka">Стирка и сушка</a></li>
+                                                        <li><a href="/category/glazenie">Глаженье</a></li>
+                                                        <li><a href="/category/uborka">Уборка</a></li>
+                                                        <li><a href="/category/vodonagrev">Водонагреватели</a></li>
+                                                        <li><a href="/category/let_klimat">Летний климат</a></li>
+                                                        <li><a href="/category/umniy_dom">Умный дом</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Смартфоны и фототехника<i class="fa fa-angle-right"></i></a>
+                                        <ul class="categories_mega_menu">
+                                            <li class="mega-menu-list"><a href="#">Смартфоны и гаджеты</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/smartphoni">Смартфоны</a></li>
+                                                        <li><a href="/category/smart_chasi">Смарт-часы и браслеты</a></li>
+                                                        <li><a href="/category/sot_telephoni">Сотовые телефоны</a></li>
+                                                        <li><a href="/category/zashita_smartphoni">Защита для смартфонов</a></li>
+                                                        <li><a href="/category/zariadka_smartphoni">Зарядка для смартфонов</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="mega-menu-list"><a href="#">Планшеты и электронные книги</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/plansheti">Планшеты</a></li>
+                                                        <li><a href="/category/elec_knigi">Электронные книги</a></li>
+                                                        <li><a href="/category/aks_plansheti">Аксессуары для планшетов</a></li>
+                                                        <li><a href="/category/chehli_knigi">Чехлы для электронных книг</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="mega-menu-list"><a href="#">Фототехника</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/photoapparati">Фотоаппараты</a></li>
+                                                        <li><a href="/category/ekshn_kameri">Экшн-камеры</a></li>
+                                                        <li><a href="/category/videokameri">Видеокамеры</a></li>
+                                                        <li><a href="/category/obectivi">Объективы</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">ТВ, консоли и аудио<i class="fa fa-angle-right"></i></a>
+                                        <ul class="categories_mega_menu">
+                                            <li class="mega-menu-list"><a href="#">Телевизоры и аксессуары</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/televizori">Телевизоры</a></li>
+                                                        <li><a href="/category/kronsheit_televizor">Кронштейны для телевизоров</a></li>
+                                                        <li><a href="/category/priem_tv_signala">Прием ТВ-сигнала</a></li>
+                                                        <li><a href="/category/saundbari">Саундбары</a></li>
+                                                        <li><a href="/category/proektori">Проекторы</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="mega-menu-list"><a href="#">Консоли и видеоигры</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/videoigri">Видеоигры</a></li>
+                                                        <li><a href="/category/xbox">Microsoft Xbox</a></li>
+                                                        <li><a href="/category/playstation">Sony PlayStation</a></li>
+                                                        <li><a href="/category/nintendo">Nintendo</a></li>
+                                                        <li><a href="/category/vr">Виртуальная реальность</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="mega-menu-list"><a href="#">Аудиотехника</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/naushniki">Наушники и гарнитуры</a></li>
+                                                        <li><a href="/category/kolonki">Колонки</a></li>
+                                                        <li><a href="/category/akustika">Домашняя акустика</a></li>
+                                                        <li><a href="/category/microphoni">Микрофоны и радиосистемы</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="last_elem">
+                                        <a href="#">ПК, ноутбуки, периферия<i class="fa fa-angle-right"></i></a>
+                                        <ul class="categories_mega_menu">
+                                            <li class="mega-menu-list"><a href="#">Ноутбуки и аксессуары</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/noutbuki">Ноутбуки</a></li>
+                                                        <li><a href="/category/podstavka_noutbuki">Подставки для ноутбуков</a></li>
+                                                        <li><a href="/category/sumki_noutbuki">Сумки для ноутбуков</a></li>
+                                                        <li><a href="/category/rukzaki_noutbuki">Рюкзаки для ноутбуков</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="mega-menu-list"><a href="#">Компьютеры и ПО</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/komputri">Персональные компьютеры</a></li>
+                                                        <li><a href="/category/monobloki">Моноблоки</a></li>
+                                                        <li><a href="/category/po">Программное обеспечение</a></li>
+                                                        <li><a href="/category/monitori">Мониторы</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="mega-menu-list"><a href="#">Периферия и аксессуары</a>
+                                                <div class="categorie_sub_menu">
+                                                    <ul>
+                                                        <li><a href="/category/monitori">Мониторы</a></li>
+                                                        <li><a href="/category/klaviaturi">Клавиатуры</a></li>
+                                                        <li><a href="/category/mishi">Мыши</a></li>
+                                                        <li><a href="/category/vneshnie_diski">Внешние накопители данных</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-7 col-md-5">
+                <div class="search_bar">
+                    <form action="#">
+                        <input placeholder="Введите название товара" type="text">
+                        <button type="submit"><i class="ion-ios-search-strong"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+                <div class="cart_area">
+                    <div class="cart_link">
+                        <a href="{{ url_for('cart') }}"><i class="ion-ios-cart-outline"></i></a>
+                        <span class="cart_count">2</span>
+                    </div>
+                    <div class="profile_link">
+                        <a href="{{ url_for('my_account') }}"><i class="ion-ios-person-outline"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+
+        </div>
+    </div>
+</div>
+<!--header bottom end-->
+
+ <script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+<script src="{{ url_for('static', filename='js/header.js') }}"></script>

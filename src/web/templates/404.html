@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Чипи - интернет магазин электроники</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+
+		<!-- all css here -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bundle.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    </head>
+    <body>
+            <!-- Add your site or application content here -->
+            
+            
+            <!--header area start-->
+            <header class="header_area">
+            </header>
+            <!--header area end-->
+    
+      
+             <!--error section area start-->
+            <div class="error_section">
+                <div class="container">   
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="error_form">
+                                <h1>404</h1>
+                                <h2>Упс! Страница не найдена!</h2>
+                                <p>Кажется, страница, которую вы запрашиваете, не существует, удалена или временно недоступна.</p>
+                                <a href="{{ url_for('chipi') }}">Вернутся домой</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <!--error section area end--> 
+            
+           <div class="page_footer">
+
+           </div>
+		
+		<!-- all js here -->
+        <script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script>$(function(){
+                  $('.header_area').load('{{ url_for('header') }}');
+                  $('.page_footer').load('{{ url_for('footer') }}');
+                });
+        </script>
+        <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>

@@ -62,7 +62,7 @@
                                 <div class="tab-content dashboard_content">
                                     <div class="tab-pane fade show active" id="dashboard">
                                         <h3>Бонусы</h3>
-                                        <p>Баланс: 0</p>
+                                        <p id="bonusBalance">Баланс: 0</p>
                                     </div>
                                     <div class="tab-pane fade" id="orders">
                                         <h3>Заказы</h3>
@@ -166,5 +166,6 @@
         </script>
         <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/myAccount.js') }}"></script>
     </body>
 </html>

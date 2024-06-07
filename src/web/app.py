@@ -4,12 +4,54 @@ import categories_service
 import account_service
 import cart_service
 from flask import Flask, request, render_template, send_file, session, redirect, url_for, Response
+import json
+from web3 import Web3
+
+coef = 0.2 # коэффициент начисления баллов
+
+# from eth_account import Account
+# from marshmallow import Schema, fields, ValidationError
+
+w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:7545"))
+# acc = w3.eth.account.create()
+# print(f'private key={w3.to_hex(acc.key)}, account={acc.address}')
+
+w3.eth.defaultAccount = w3.eth.accounts[0]
+# Get stored abi and contract_address
+with open("contract/MyToken.json", 'r') as f:
+    datastore = json.load(f)
+    abi = datastore["abi"]
+    bytecode = datastore["data"]["bytecode"]["object"]
+
+# set pre-funded account as sender
+w3.eth.default_account = w3.eth.accounts[0]
+
+token = w3.eth.contract(abi=abi, bytecode=bytecode)
+
+# Submit the transaction that deploys the contract
+tx_hash = token.constructor().transact()
+
+# Wait for the transaction to be mined, and get the transaction receipt
+tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+token = w3.eth.contract(
+    address=tx_receipt.contractAddress,
+    abi=abi
+)
+
+# print(token.functions.balanceOf(acc.address).call())
+# tx_hash = token.functions.transfer(w3.eth.defaultAccount, acc.address, 1).transact()
+#
+# tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+#
+# print(token.functions.balanceOf(w3.eth.defaultAccount).call())
+# print(token.functions.balanceOf(acc.address).call())
+
+# token.functions.greet().call()
 
 app = Flask(__name__)
 
 app.secret_key = b'mmdsadadad#!#$1355...!dd!E'
 #session.permanent = True
-
 
 
 @app.route("/chipi")
@@ -44,7 +86,10 @@ def login_in():
 @app.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
-    res = account_service.register(data['email'], data['password'])
+    acc = w3.eth.account.create()
+    key = w3.to_hex(acc.key)
+    account = acc.address
+    res = account_service.register(data['email'], data['password'], account, key)
     if res:
         session['user_id'] = data['email']
         #return redirect(url_for('my_account'))
@@ -67,7 +112,7 @@ def footer():
 
 @app.route('/cart', methods=['GET', 'POST'])
 def cart():
-    session['coins_to_pay'] = 1
+    session['coins_to_pay'] = 0
     if 'user_id' in session:
         return render_template('cart.html')
     else:
@@ -146,12 +191,40 @@ def get_total():
     cart_total_str = '{0:,}'.format(cart_total)
     cart_total_str = cart_total_str.replace(",", " ")
     bonus = session["coins_to_pay"]
+    if (bonus > cart_total):
+        bonus = cart_total
+        session["coins_to_pay"] = bonus
     bonus_str = '{0:,}'.format(bonus)
     bonus_str = bonus_str.replace(",", " ")
     total_str = '{0:,}'.format(cart_total - bonus)
+    session["total"] = cart_total - bonus
     total_str = total_str.replace(",", " ")
     response = {"cart_total": f"{cart_total_str} ₽", "bonus": f"{bonus_str} ₽", "total": f"{total_str} ₽"}
     return response
+
+@app.route('/getCoinBalance', methods=['GET'])
+def get_coin_balance():
+    user_id = session['user_id']
+    account = cart_service.get_account(user_id)
+    balance = token.functions.balanceOf(account).call()
+    response = str(balance)
+    return response
+
+@app.route('/spendCoins/<amount>', methods=['POST'])
+def spend_coins(amount):
+    if 'user_id' not in session:
+        return Response("Для выполнения этого действия необходимо быть авторизованным!", status=400)
+    elif not (amount.isdigit()):
+        return Response("Введите целое число!", status=500)
+    elif (int(amount) <= 0):
+        return Response("Количество должно быть больше 0!", status=500)
+    else:
+        balance = int(get_coin_balance())
+        if (balance < int(amount)):
+            return Response("Вы ввели больше баллов, чем у вас есть на счету!", status=500)
+        else:
+            session['coins_to_pay'] = int(amount)
+            return Response("Баллы применены!", status=200)
 
 @app.route('/confirm_order', methods=['POST'])
 def confirm_oder():
@@ -161,6 +234,14 @@ def confirm_oder():
         return Response("Корзина пуста!", status=500)
     else:
         user_id = session['user_id']
+        account = cart_service.get_account(user_id)
+        if (session["coins_to_pay"] == 0):
+            bonus = int(coef * session["total"])
+            tx_hash = token.functions.transfer(w3.eth.defaultAccount, account, bonus).transact()
+            tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+        else:
+            tx_hash = token.functions.transfer(account, w3.eth.defaultAccount, session["coins_to_pay"]).transact()
+            tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
         cart_service.drop_cart(user_id)
         return Response("Заказ оформлен!", status=200)
 

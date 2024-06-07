@@ -25,6 +25,37 @@
         req.send(null);
     }
 
+    function getCoinBalance() {
+        const req = new XMLHttpRequest();
+        req.open("GET", `${web}/getCoinBalance`, true);
+        req.addEventListener("load", () => {
+            var result = req.responseText;
+            $("#bonusBalance").text(result);
+        });
+        req.send(null);
+    }
+
+    $('#spendCoins').on('click', function(){
+        var coins = $("#coins").val();
+
+        const req = new XMLHttpRequest();
+        req.open("POST", `${web}/spendCoins/${coins}`);
+//        req.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+//        const body = JSON.stringify({
+//          email: email,
+//          password: password,
+//        });
+        req.onload = () => {
+            if (req.readyState == 4 && req.status == 200) {
+                getTotal();
+            } else {
+                alert(req.response);
+            }
+        };
+        req.send();
+
+    });
+
     function getList() {
         const req = new XMLHttpRequest();
         req.open("GET", `${web}/getCartList`, true);
@@ -107,5 +138,6 @@
     } );
 
     getList();
+    getCoinBalance();
 
 })(jQuery);

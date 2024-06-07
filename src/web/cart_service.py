@@ -82,3 +82,14 @@ def get_cart_amount(user_id):
         return 0
     else:
         return amount
+
+def get_account(user_id):
+    connection = sqlite3.connect('data/shop_db.db')
+    cursor = connection.cursor()
+    cursor.execute(f"SELECT account FROM customers WHERE email = '{user_id}' ")
+    account = cursor.fetchone()[0]
+    connection.close()
+    if account is None:
+        return ""
+    else:
+        return account

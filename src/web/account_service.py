@@ -15,13 +15,13 @@ def login(email, password):
     connection.close()
     return res is not None
 
-def register(email, password):
+def register(email, password, account, key):
     connection = sqlite3.connect('data/shop_db.db')
     cursor = connection.cursor()
     cursor.execute(f"SELECT * FROM customers WHERE email = '{email}' ")
     res = cursor.fetchone()
     if res is None:
-        cursor.execute(f"INSERT INTO customers (id, email, password) VALUES ((SELECT MAX(id) FROM customers) + 1, '{email}', '{password}')")
+        cursor.execute(f"INSERT INTO customers (id, email, password, account, key) VALUES ((SELECT MAX(id) FROM customers) + 1, '{email}', '{password}', '{account}', '{key}')")
         connection.commit()
         connection.close()
         return True

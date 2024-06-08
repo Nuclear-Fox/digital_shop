@@ -199,7 +199,7 @@
                 <div class="cart_area">
                     <div class="cart_link">
                         <a href="{{ url_for('cart') }}"><i class="ion-ios-cart-outline"></i></a>
-                        <span class="cart_count">2</span>
+<!--                        <span class="cart_count">2</span>-->
                     </div>
                     <div class="profile_link">
                         <a href="{{ url_for('my_account') }}"><i class="ion-ios-person-outline"></i></a>
@@ -218,8 +218,18 @@
 </div>
 <!--header bottom end-->
 
- <script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+<div class="chat">
+
+</div>
+
+
+
+<script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+<script>$(function(){
+        $('.chat').load('{{ url_for('chat') }}');
+    });
+</script>
 <script src="{{ url_for('static', filename='js/header.js') }}"></script>

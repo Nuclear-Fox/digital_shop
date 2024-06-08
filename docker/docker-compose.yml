@@ -5,4 +5,4 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    command: bash -c "python web/app.py"
+    command: bash -c "python web/app1.py"

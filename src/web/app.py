@@ -3,6 +3,7 @@
 import categories_service
 import account_service
 import cart_service
+import bot
 from flask import Flask, request, render_template, send_file, session, redirect, url_for, Response
 import json
 from web3 import Web3
@@ -105,6 +106,10 @@ def logout():
 @app.route('/header', methods=['GET', 'POST'])
 def header():
     return render_template('header.html')
+
+@app.route('/chat', methods=['GET', 'POST'])
+def chat():
+    return render_template('chat.html')
 
 @app.route('/footer', methods=['GET', 'POST'])
 def footer():
@@ -244,6 +249,11 @@ def confirm_oder():
             tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
         cart_service.drop_cart(user_id)
         return Response("Заказ оформлен!", status=200)
+
+@app.route('/ask/<msg>', methods=['POST'])
+def ask(msg):
+
+    return Response(bot.response(msg), status=200)
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')

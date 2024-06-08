@@ -40,11 +40,6 @@
 
         const req = new XMLHttpRequest();
         req.open("POST", `${web}/spendCoins/${coins}`);
-//        req.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-//        const body = JSON.stringify({
-//          email: email,
-//          password: password,
-//        });
         req.onload = () => {
             if (req.readyState == 4 && req.status == 200) {
                 getTotal();

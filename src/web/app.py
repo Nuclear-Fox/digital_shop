@@ -215,6 +215,13 @@ def get_coin_balance():
     response = str(balance)
     return response
 
+@app.route('/getCoinAccount', methods=['GET'])
+def get_coin_account():
+    user_id = session['user_id']
+    account = cart_service.get_account(user_id)
+    response = str(account)
+    return response
+
 @app.route('/spendCoins/<amount>', methods=['POST'])
 def spend_coins(amount):
     if 'user_id' not in session:
